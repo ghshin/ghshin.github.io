@@ -1,0 +1,24 @@
+---
+layout: default
+title: Reading Race
+permalink: /readingrace/
+---
+<div class="home">
+  <h1 class="page-heading">리딩 레이스</h1>
+  <table>
+{% assign librarys_out_date = site.data.readingrace %}
+{% for books in site.data.readingrace %}
+    <tr>
+      <td rowspan="2"><img src="{{ books.image }}"/></td>
+      <td>{{ books.title }}</td>
+      <td>{{ books.author }}</td>
+      <td>{{ books.publisher }}</td>
+    </tr>
+    <tr>
+      <td>{{ books.domain }}</td>
+      <td>{{ books.level }}</td>
+      <td>{{ books.page }}</td>
+    </tr>
+{% endfor %}
+  </table>
+</div>
