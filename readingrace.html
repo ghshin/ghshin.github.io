@@ -10,14 +10,12 @@ permalink: /readingrace/
 {% for books in site.data.readingrace %}
     <tr>
       <td rowspan="2"><img src="{{ books.image }}"/></td>
-      <td>{{ books.title }}</td>
-      <td>{{ books.author }}</td>
-      <td>{{ books.publisher }}</td>
+      <td colspan="3">{{ books.title }}</td>
     </tr>
     <tr>
+      <td>{{ books.author }}</td>
+      <td>{{ books.publisher }}</td>
       <td>{{ books.domain }}</td>
-      <td>{{ books.level }}</td>
-      <td>{{ books.page }}</td>
     </tr>
 {% endfor %}
   </table>
