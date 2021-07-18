@@ -30,6 +30,7 @@ header:
     정보: /about/
     카테고리: /category/
     도서관: /library/
+    리딩레이스: /readingrace/
 
 permalink: /archivers/:title
 plugins:
