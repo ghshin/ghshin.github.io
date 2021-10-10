@@ -1,0 +1,38 @@
+---
+layout: default
+title: library
+permalink: /library/
+---
+<div class="home">
+  <h1 class="page-heading">도서정보</h1>
+
+{% assign librarys_user = site.data.librarys | group_by: 'name' | sort: 'name' %}
+  <ul class="post-list">
+    <ui>
+{% for users in librarys_user %}
+      <li>{{ users.name }} »
+  {% assign user_library = users.items | group_by: 'library' | sort: 'name' %}
+  {% for library in user_library %}
+        {{ library.name }}({{ library.size }})
+  {% endfor %}
+      </li>
+{% endfor %}
+    </ui>
+
+{% assign librarys_out_date = site.data.librarys | group_by: 'out_date' | sort: 'name' %}
+{% for librarys in librarys_out_date %}
+    <h2 id="{{ librarys.name }}">{{ librarys.name | date: "%m.%d %A" }} ({{librarys.size}})</h2>
+    <ul>
+  {% assign library = librarys.items | group_by: 'library' | sort: 'name' %}
+  {% for books in library %}
+      <li id="{{ books.name }}">{{ books.name }} ({{books.size}})</li>
+      <ul>
+    {% for book in books.items %}
+        <li><span>{{ book.name }}</span> » {{ book.title }}</li>
+    {% endfor %}
+      </ul>
+  {% endfor %}
+    </ul>
+{% endfor %}
+  </ul>
+</div>
