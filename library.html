@@ -28,7 +28,11 @@ permalink: /library/
       <li id="{{ books.name }}">{{ books.name }} ({{books.size}})</li>
       <ul>
     {% for book in books.items %}
-        <li><span>{{ book.name }}</span> » {{ book.title }}</li>
+        <li style="display: contents;">
+          <input type="checkbox" id="{{ book.name }}_{{ book.title }}">>
+          <span>{{ book.name }}</span>
+          <label for="{{ book.name }}_{{ book.title }}">» {{ book.title }}</label>
+        </li>
     {% endfor %}
       </ul>
   {% endfor %}
